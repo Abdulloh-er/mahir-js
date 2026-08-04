@@ -1,0 +1,16 @@
+#dasar awalnya buat ngecek hostname sama masukin folder
+Microsoft Windows [Version 10.0.26200.8875]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\DELL>hostname
+el-bedull
+
+C:\Users\DELL>cd documents
+
+C:\Users\DELL\Documents>
+
+#Ada tiga perintah super penting buat navigasi
+
+pwd (atau padanannya di Windows): Buat tau kamu lagi ada di "ruangan" (folder) mana.
+ls (atau dir di Windows): Buat ngintip "isi" ruangan itu (file dan folder lain).
+cd: Buat "pindah" ke ruangan lain.
