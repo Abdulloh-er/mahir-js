@@ -15,401 +15,276 @@ pwd (atau padanannya di Windows): Buat tau kamu lagi ada di "ruangan" (folder) m
 ls (atau dir di Windows): Buat ngintip "isi" ruangan itu (file dan folder lain).
 cd: Buat "pindah" ke ruangan lain.
 
-# BELAJAR DASAR COMMAND LINE / TERMINAL
+# Belajar Command Line / Terminal
 
 ## Apa itu Command Line?
 
-Command Line atau yang sering disebut Terminal adalah sebuah program yang digunakan untuk menjalankan perintah ke komputer menggunakan teks. Jadi kita tidak perlu klik-klik folder atau file seperti biasanya, tetapi cukup mengetik command yang sudah disediakan oleh sistem operasi.
+Command Line (CLI) adalah cara buat ngasih perintah ke komputer lewat tulisan, bukan klik-klik mouse kayak biasanya.
 
-Awalnya memang terasa agak aneh karena biasanya kita terbiasa menggunakan mouse. Tapi ternyata hampir semua programmer menggunakan Terminal karena lebih cepat dan lebih efisien, apalagi kalau project yang dikerjakan sudah mulai besar.
+Awalnya emang keliatan ribet karena semuanya harus diketik. Tapi ternyata buat programmer ini malah lebih cepet daripada buka folder satu-satu.
 
-Selain itu, banyak tools pemrograman yang dijalankan lewat Terminal, misalnya Git, Node.js, npm, React, Laravel, Docker, dan lain-lain. Jadi bisa dibilang Terminal adalah salah satu kemampuan dasar yang harus dipelajari sebelum masuk ke materi yang lebih lanjut.
+Nanti pas belajar Git, Node.js, npm, React, Laravel, dll hampir semuanya bakal dijalanin lewat Terminal.
 
-Yang penting dipahami adalah Terminal bukan bahasa pemrograman, melainkan media untuk memberikan perintah kepada sistem operasi.
-
----
-
-## Membuka Terminal di Sistem Operasi
-
-Setiap sistem operasi punya aplikasi Terminal sendiri.
-
-Kalau di Windows biasanya ada Command Prompt (CMD), PowerShell, dan Windows Terminal. Sekarang kebanyakan orang lebih memilih Windows Terminal karena tampilannya lebih modern dan bisa dipakai untuk banyak shell sekaligus.
-
-Cara membukanya cukup tekan tombol Windows lalu cari "Windows Terminal" atau "PowerShell".
-
-Kalau di macOS tinggal buka aplikasi Terminal melalui Spotlight (Command + Space), lalu ketik Terminal.
-
-Kalau di Linux lebih gampang lagi karena hampir semua distro sudah menyediakan Terminal bawaan. Biasanya shortcutnya Ctrl + Alt + T.
-
-Walaupun tampilannya sedikit berbeda, command dasar yang dipakai hampir sama.
+Jadi wajib banget ngerti dasar-dasarnya.
 
 ---
 
-## Anatomi Jendela Terminal
+## Cara buka Terminal
 
-Saat pertama kali membuka Terminal biasanya akan muncul tulisan seperti ini.
+### Windows
 
-username@computer:~/Documents $
+Bisa pake:
+- CMD
+- PowerShell
+- Windows Terminal (lebih enak dipake)
 
-Kalau dilihat sekilas memang kelihatan membingungkan, padahal setiap bagiannya punya arti.
+Cara buka:
+- Tekan tombol Windows
+- Ketik "Windows Terminal"
+- Enter
 
-* username menunjukkan nama pengguna komputer.
-* computer menunjukkan nama perangkat yang sedang digunakan.
-* ~/Documents menunjukkan posisi folder saat ini.
-* tanda $ berarti Terminal sudah siap menerima command.
+---
 
-Semua command nantinya diketik setelah tanda tersebut lalu ditekan Enter.
+## Anatomi Terminal
 
-Misalnya mengetik:
+Biasanya tampilannya kayak gini
 
+C:\Users\DELL>
+
+atau
+
+username@pc:~$
+
+Nah itu artinya kita lagi ada di suatu folder dan Terminal lagi nunggu command dari kita.
+
+Kalau ada tanda
+
+>
+
+atau
+
+$
+
+berarti tinggal ketik command terus Enter.
+
+---
+
+# Dasar awal
+
+Buat cek nama komputer
+
+```cmd
+hostname
+```
+
+Output
+
+```cmd
+el-bedull
+```
+
+Masuk ke folder Documents
+
+```cmd
+cd Documents
+```
+
+Kalau berhasil biasanya berubah jadi
+
+```cmd
+C:\Users\DELL\Documents>
+```
+
+Artinya sekarang posisi kita udah ada di folder Documents.
+
+---
+
+# Tiga command yang paling sering dipake
+
+## pwd
+
+Buat tau sekarang lagi ada di folder mana.
+
+Kalau di Linux atau macOS
+
+```bash
 pwd
+```
 
-maka Terminal akan menampilkan lokasi folder yang sedang kita buka sekarang.
-
----
-
-## Navigasi Folder di Terminal
-
-Navigasi artinya berpindah dari satu folder ke folder lainnya.
-
-Command yang paling sering dipakai adalah **pwd**, **ls**, dan **cd**.
-
-### pwd
-
-Command ini singkatan dari **Print Working Directory**.
-
-Fungsinya untuk mengetahui kita sedang berada di folder mana.
-
-Misalnya kita lupa sekarang ada di folder apa, tinggal ketik:
-
-pwd
-
-lalu Terminal akan menampilkan alamat folder tersebut.
+Kalau di Windows biasanya alamat foldernya udah keliatan di prompt.
 
 ---
 
-### ls
+## ls
 
-Command ini digunakan untuk melihat isi folder.
+Buat liat isi folder.
 
-Misalnya kita sedang berada di folder Documents lalu ingin melihat ada file apa saja di dalamnya.
-
-Cukup ketik:
-
+```bash
 ls
+```
 
-Kalau ingin melihat file tersembunyi bisa menggunakan:
+Outputnya bisa berupa file atau folder yang ada di dalam directory sekarang.
 
-ls -a
+Kalau di CMD Windows biasanya pake
 
-Sedangkan kalau ingin melihat informasi file lebih lengkap seperti ukuran, permission, dan tanggal dibuat bisa menggunakan:
-
-ls -l
+```cmd
+dir
+```
 
 ---
 
-### cd
+## cd
 
-Command **cd** berarti Change Directory.
+Buat pindah folder.
 
-Fungsinya untuk berpindah folder.
+Masuk ke folder project
 
-Misalnya ada folder bernama project.
-
-Tinggal ketik:
-
+```cmd
 cd project
+```
 
-Kalau ingin kembali ke folder sebelumnya:
+Balik satu folder
 
+```cmd
 cd ..
+```
 
-Kalau ingin langsung kembali ke folder Home:
+Balik ke folder Home
 
+```cmd
 cd
-
-atau
-
-cd ~
-
-Kalau folder yang dituju berada di dalam folder lain juga bisa langsung ditulis path-nya.
-
-Misalnya:
-
-cd Documents/Belajar/Web
-
-Semakin sering latihan menggunakan cd, semakin cepat kita terbiasa berpindah folder tanpa harus membuka File Explorer.
+```
 
 ---
 
-## Membuat Folder dan File
+# Bikin folder
 
-Kalau ingin membuat folder baru bisa menggunakan command:
+Pake command
 
-mkdir
+```cmd
+mkdir belajar-cli
+```
 
-Misalnya:
+Langsung kebikin folder baru.
 
-mkdir latihan-terminal
+Kalau mau banyak sekaligus juga bisa.
 
-Maka akan langsung dibuat folder dengan nama tersebut.
-
-Kalau ingin membuat beberapa folder sekaligus juga bisa.
-
-Misalnya:
-
-mkdir html css javascript
-
-Nanti ketiga folder tersebut langsung dibuat dalam satu command.
+```cmd
+mkdir html css js
+```
 
 ---
 
-Untuk membuat file kosong biasanya menggunakan command:
+# Bikin file
 
-touch
+Kalau Linux/macOS
 
-Contohnya:
-
+```bash
 touch index.html
+```
 
-Kalau ingin membuat beberapa file sekaligus juga bisa.
+Kalau PowerShell
 
-Misalnya:
-
-touch index.html style.css script.js
-
-Dalam satu kali Enter langsung jadi tiga file.
-
-Kalau di Windows PowerShell biasanya menggunakan command New-Item.
+```powershell
+New-Item index.html
+```
 
 ---
 
-## Copy, Paste, dan Mengganti Nama
+# Copy file
 
-Untuk menyalin file digunakan command cp.
-
-Misalnya:
-
+```bash
 cp index.html backup.html
+```
 
-Artinya isi file index.html akan disalin ke file baru bernama backup.html.
+Artinya isi index.html disalin ke file baru backup.html.
 
-Kalau yang disalin adalah folder maka perlu menambahkan opsi -r.
+Kalau copy folder jangan lupa pake -r.
 
-Contohnya:
-
+```bash
 cp -r project backup-project
-
-Karena folder memiliki isi di dalamnya, maka proses copy harus dilakukan secara rekursif.
-
----
-
-Kalau ingin memindahkan file menggunakan command:
-
-mv
-
-Misalnya:
-
-mv index.html folderbaru/
-
-Selain untuk memindahkan file, command mv juga bisa digunakan untuk mengganti nama file.
-
-Contohnya:
-
-mv tugas.txt tugas-lama.txt
-
-Nama filenya berubah tetapi isi file tetap sama.
+```
 
 ---
 
-## Menghapus File dan Folder
+# Rename file
 
-Untuk menghapus file digunakan command:
+Ternyata command buat rename sama pindahin file itu sama-sama pake mv.
 
-rm
+```bash
+mv lama.txt baru.txt
+```
 
-Misalnya:
+---
 
+# Hapus file
+
+```bash
 rm index.html
+```
 
-Kalau file yang ingin dihapus lebih dari satu tinggal tulis semuanya.
+Hapus folder
 
-Misalnya:
-
-rm index.html style.css script.js
-
-Kalau folder yang ingin dihapus masih kosong bisa menggunakan:
-
-rmdir
-
-Tetapi kalau folder tersebut masih memiliki isi, harus menggunakan:
-
-rm -r
-
-Contohnya:
-
+```bash
 rm -r project
+```
 
-Ada juga command yang cukup berbahaya yaitu:
+Kalau ada command
 
+```bash
 rm -rf
+```
 
-Command ini langsung menghapus folder beserta seluruh isinya tanpa meminta konfirmasi terlebih dahulu.
+Hati-hati banget.
 
-Karena itu harus benar-benar hati-hati sebelum menekan Enter. Salah mengetik sedikit saja bisa menghapus file penting.
-
----
-
-## Command Lain yang Berguna
-
-Selain command utama, ada beberapa command lain yang sering dipakai.
-
-### clear
-
-Digunakan untuk membersihkan layar Terminal supaya tampilannya kembali kosong.
-
-Kalau di Windows biasanya menggunakan:
-
-cls
+Dia langsung ngapus semuanya tanpa nanya lagi.
 
 ---
 
-### cat
+# Command lain
 
-Digunakan untuk menampilkan isi file langsung di Terminal.
+clear
+→ bersihin Terminal
 
-Misalnya:
+cat
+→ nampilin isi file
 
-cat README.md
+history
+→ liat command yang pernah dipake
 
-Isi file tersebut akan langsung ditampilkan.
+whoami
+→ liat username yang lagi login
 
----
+which
+→ cari lokasi suatu program
 
-### more dan less
-
-Kedua command ini digunakan untuk membaca file yang isinya panjang.
-
-Bedanya, less lebih nyaman digunakan karena bisa scroll ke atas maupun ke bawah.
-
----
-
-### whoami
-
-Digunakan untuk mengetahui username yang sedang login.
-
-Kadang command ini dipakai saat konfigurasi Git atau server.
+man
+→ buka dokumentasi command
 
 ---
 
-### history
+# Tips
 
-Digunakan untuk melihat daftar command yang pernah dijalankan sebelumnya.
-
-Kalau lupa command apa yang tadi dipakai, tinggal ketik history.
-
----
-
-### which
-
-Digunakan untuk mengetahui lokasi suatu program.
-
-Misalnya:
-
-which node
-
-Kalau Node.js sudah terinstall maka lokasi file executable-nya akan ditampilkan.
+- Tab = auto complete nama file/folder.
+- Panah atas = buka command sebelumnya.
+- Ctrl + C = stop proses yang lagi jalan.
+- Jangan asal copy paste command dari internet.
+- Biasain baca dulu sebelum Enter apalagi kalau ada rm.
 
 ---
 
-### man atau --help
+# Terminal di VS Code
 
-Kalau lupa fungsi suatu command, kita bisa melihat dokumentasinya.
-
-Contohnya:
-
-man ls
-
-atau
-
-ls --help
-
-Hampir semua command mempunyai halaman bantuan masing-masing.
-
----
-
-## Tips dan Trik Menggunakan Terminal
-
-Ada beberapa shortcut yang sangat membantu.
-
-Yang pertama adalah tombol **Tab**.
-
-Kalau mengetik nama folder tidak perlu sampai selesai. Tinggal ketik beberapa huruf pertama lalu tekan Tab.
-
-Misalnya:
-
-cd Doc
-
-Tekan Tab.
-
-Kalau hanya ada satu folder yang namanya Documents, Terminal akan otomatis melengkapinya.
-
-Ini sangat membantu supaya tidak salah mengetik.
-
----
-
-Shortcut berikutnya adalah tombol panah atas.
-
-Dengan menekan ↑ kita bisa membuka kembali command yang pernah dijalankan sebelumnya.
-
-Jadi tidak perlu mengetik ulang dari awal.
-
----
-
-Kalau ada proses yang sedang berjalan dan ingin dihentikan bisa menggunakan:
-
-Ctrl + C
-
-Shortcut ini termasuk yang paling sering digunakan.
-
----
-
-Biasakan membaca command sebelum menekan Enter.
-
-Terutama command yang menggunakan rm karena file yang dihapus dari Terminal biasanya tidak masuk ke Recycle Bin.
-
----
-
-Jangan hanya menghafal command.
-
-Lebih baik memahami fungsi masing-masing command sehingga nanti saat menemukan command baru akan lebih mudah dipelajari.
-
----
-
-## Terminal di VS Code
-
-Visual Studio Code sudah menyediakan Terminal bawaan sehingga kita tidak perlu membuka aplikasi Terminal secara terpisah.
-
-Cara membukanya bisa melalui menu:
-
-Terminal → New Terminal
-
-atau menggunakan shortcut:
+Shortcut
 
 Ctrl + `
 
-Dengan adanya Terminal di VS Code, proses coding menjadi lebih praktis karena semua bisa dilakukan dalam satu aplikasi.
+Enaknya gak perlu pindah aplikasi.
 
-Misalnya menjalankan project, install package npm, menggunakan Git, menjalankan server, atau membuat folder baru.
-
-Hampir semua programmer menggunakan fitur ini karena lebih efisien.
+Bisa langsung coding sambil jalanin command Git, npm, node, dll.
 
 ---
 
-## Kesimpulan
+# Kesimpulan
 
-Setelah mempelajari materi ini saya jadi paham kalau Terminal sebenarnya tidak sesulit yang saya bayangkan. Memang di awal harus menghafal beberapa command dasar, tetapi lama-kelamaan akan terbiasa karena command yang digunakan sebenarnya itu-itu saja.
-
-Materi yang dipelajari dimulai dari mengenal apa itu Command Line, cara membuka Terminal di berbagai sistem operasi, memahami bagian-bagian yang ada di Terminal, berpindah folder menggunakan command navigasi, membuat file dan folder, menyalin, memindahkan, mengganti nama, sampai menghapus file dan folder. Selain itu saya juga belajar beberapa command tambahan yang sering digunakan serta shortcut yang bisa mempercepat pekerjaan.
-
-Menurut saya, kemampuan menggunakan Terminal sangat penting karena hampir semua materi pemrograman selanjutnya pasti akan menggunakan Terminal, terutama saat belajar Git, GitHub, Node.js, npm, React, maupun framework lainnya. Jadi menguasai dasar-dasar Command Line akan sangat membantu saat belajar web development ke depannya.
+Setelah nyoba sendiri ternyata Terminal gak seseram yang dibayangin. Yang penting hafal command dasar dulu kayak cd, ls, pwd, mkdir, sama rm. Sisanya nanti bakal kebiasa sendiri karena sering dipake pas ngoding.
