@@ -77,34 +77,6 @@ for (let k = 1; k <= 7; k++) {
   }
 }
 
-console.log("-----------------------------------------");
-// array data berurutan yg berindex
-const data = [
-    "budi", 
-    "andi", 
-    "caca", 
-    "didi", 
-    "eman", 
-    "supardi"
-];
-console.log(data);
-console.log(data[3]);
-
-
-console.log("-----------------------------------------");
-// obeject pake { } dan punya key
-
-const profilsaya = {
-    nama: "abdulloh",
-    umur: 17,
-    sekolah: "SMAIT HSI BOARDING SCHOOL",
-    angkatan: 4,
-    hobi: ["nge-game", "ngedit(foto/video)", "ngoding"]
-};
-console.log(profilsaya);
-console.log(profilsaya.nama);
-console.log(profilsaya.umur);
-
 
 console.log("-----------------------------------------");
 // date => manipulasi data
