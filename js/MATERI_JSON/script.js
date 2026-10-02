@@ -1,4 +1,4 @@
-const API_URL = "https://dummyjson.com/products";
+const API_URL = "https://dummyjson.com/products?limit=194";
 
 let products = [];
 
@@ -54,14 +54,12 @@ async function loadProducts() {
 
     fillCategoryOptions();
     applyFilters();
-
   } catch (error) {
     console.error(error);
 
     showState("error");
     resultSummary.textContent = "Gagal mengambil data.";
-    errorMessage.textContent =
-      "Tidak bisa mengambil data dari DummyJSON. Periksa koneksi internet lalu coba lagi.";
+    errorMessage.textContent = "Tidak bisa mengambil data dari DummyJSON. Periksa koneksi internet lalu coba lagi.";
   }
 }
 
@@ -86,9 +84,7 @@ function fillCategoryOptions() {
 }
 
 function formatCategory(category) {
-  return category
-    .replaceAll("-", " ")
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+  return category.replaceAll("-", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 // ------------------------------------
@@ -110,9 +106,7 @@ function applyFilters() {
 
     const matchesSearch = searchText.includes(keyword);
 
-    const matchesCategory =
-      selectedCategory === "all" ||
-      product.category === selectedCategory;
+    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });
@@ -133,8 +127,7 @@ function applyFilters() {
     result.sort((a, b) => a.title.localeCompare(b.title));
   }
 
-  resultSummary.textContent =
-    `${result.length} dari ${products.length} product ditampilkan`;
+  resultSummary.textContent = `${result.length} dari ${products.length} product ditampilkan`;
 
   if (result.length === 0) {
     showState("empty");

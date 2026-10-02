@@ -23,7 +23,6 @@ select {
   font: inherit;
 }
 
-
 /* ================================
    MAIN CONTAINER
 ================================ */
@@ -33,7 +32,6 @@ select {
   margin: 0 auto;
   padding: 25px 0 60px;
 }
-
 
 /* ================================
    HEADER
@@ -88,7 +86,6 @@ select {
 .flow b {
   color: #f0a800;
 }
-
 
 /* ================================
    API BOX
@@ -180,7 +177,6 @@ select {
   color: white;
 }
 
-
 /* ================================
    FILTER
 ================================ */
@@ -262,7 +258,6 @@ select:focus {
   background: #3f4d60;
 }
 
-
 /* ================================
    RESULT HEADER
 ================================ */
@@ -301,7 +296,6 @@ select:focus {
   background: #20a56a;
 }
 
-
 /* ================================
    PRODUCT GRID
 ================================ */
@@ -313,7 +307,6 @@ select:focus {
 
   gap: 16px;
 }
-
 
 /* ================================
    PRODUCT CARD
@@ -344,9 +337,8 @@ select:focus {
 .product-card:hover {
   transform: translateY(-3px);
 
-  box-shadow: 0 12px 30px rgba(30, 80, 130, 0.10);
+  box-shadow: 0 12px 30px rgba(30, 80, 130, 0.1);
 }
-
 
 /* ================================
    PRODUCT IMAGE
@@ -362,7 +354,7 @@ select:focus {
    agar SELURUH gambar terlihat.
 */
 
-.product-image {
+.product-image-wrap {
   width: 100%;
 
   height: 215px;
@@ -379,7 +371,7 @@ select:focus {
   overflow: hidden;
 }
 
-.product-image img {
+.product-image {
   display: block;
 
   width: 100%;
@@ -392,21 +384,20 @@ select:focus {
   transition: transform 0.25s ease;
 }
 
-.product-card:hover .product-image img {
+.product-card:hover .product-image {
   transform: scale(1.04);
 }
-
 
 /* ================================
    PRODUCT CONTENT
 ================================ */
 
-.product-content {
+.product-body {
   display: flex;
 
   flex-direction: column;
 
-  padding: 14px 16px 16px;
+  padding: 18px 16px 16px;
 
   flex: 1;
 }
@@ -429,7 +420,7 @@ select:focus {
   font-weight: 700;
 }
 
-.product-content h3 {
+.product-title {
   margin: 0 0 10px;
 
   min-height: 40px;
@@ -446,6 +437,7 @@ select:focus {
 
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 
   overflow: hidden;
 
@@ -459,7 +451,6 @@ select:focus {
 
   line-height: 1.5;
 }
-
 
 /* ================================
    PRICE + RATING
@@ -485,7 +476,6 @@ select:focus {
 
   font-size: 14px;
 }
-
 
 /* ================================
    STOCK + BRAND
@@ -515,7 +505,6 @@ select:focus {
   text-overflow: ellipsis;
 }
 
-
 /* ================================
    DETAIL BUTTON
 ================================ */
@@ -544,7 +533,6 @@ select:focus {
 .detail-btn:hover {
   background: #056795;
 }
-
 
 /* ================================
    STATE
@@ -578,7 +566,6 @@ select:focus {
   font-size: 40px;
 }
 
-
 /* ================================
    LOADER
 ================================ */
@@ -603,7 +590,6 @@ select:focus {
     transform: rotate(360deg);
   }
 }
-
 
 /* ================================
    ERROR
@@ -631,7 +617,6 @@ select:focus {
 
   cursor: pointer;
 }
-
 
 /* ================================
    DIALOG
@@ -763,7 +748,6 @@ dialog::backdrop {
   color: #1e293b;
 }
 
-
 /* ================================
    RESPONSIVE
 ================================ */
@@ -785,7 +769,6 @@ dialog::backdrop {
     width: 100%;
   }
 }
-
 
 @media (max-width: 750px) {
   .top-header {
@@ -823,7 +806,6 @@ dialog::backdrop {
   }
 }
 
-
 @media (max-width: 520px) {
   .container {
     width: min(100% - 20px, 1200px);
@@ -855,7 +837,7 @@ dialog::backdrop {
     gap: 8px;
   }
 
-  .product-image {
+  .product-image-wrap {
     height: 240px;
   }
 
