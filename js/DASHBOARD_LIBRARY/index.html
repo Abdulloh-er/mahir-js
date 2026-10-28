@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.3.1/dist/css/tabulator.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="library.css">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">JAVASCRIPT LIBRARY</p>
+                <h1>Library Dashboard</h1>
+                <p class="hero-description">Klik, pilih, dan coba tiap library di bawah ini.</p>
+            </div>
+        </section>
+
+        <section class="recipes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <p class="section-label">PREVIEW</p>
+                        <h2>6 Library, 6 Demo</h2>
+                    </div>
+                    <p id="recipe-count" aria-live="polite">6 library</p>
+                </div>
+
+                <div class="recipe-grid">
+                    <!-- 1. SweetAlert2 -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">SweetAlert2 · Dialog</span>
+                            <h3 class="recipe-title">Konfirmasi hapus</h3>
+                            <p class="lib-desc">Pengganti alert() dan confirm() bawaan browser.</p>
+                            <div class="demo-box">
+                                <button class="favorite-button" id="btn-swal" type="button">Hapus demo</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. Floating UI -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Floating UI · Tooltip</span>
+                            <h3 class="recipe-title">Tooltip yang pas posisinya</h3>
+                            <p class="lib-desc">Arahkan kursor atau klik ikon ⓘ.</p>
+                            <div class="demo-box">
+                                <div class="kpi">
+                                    <span>Omzet hari ini</span>
+                                    <button class="info-btn" id="info-btn" type="button" aria-label="Informasi omzet" aria-describedby="tip" aria-expanded="false">i</button>
+                                    <strong>Rp150.000</strong>
+                                </div>
+                                <div class="tip" id="tip" role="tooltip">Harga Rp.100.000.00 jumlah terjual hari ini.</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Tom Select -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Tom Select · Klub sepak bola</span>
+                            <h3 class="recipe-title">Pilih klub sepak bola</h3>
+                            <p class="lib-desc">Cari, pilih beberapa klub, atau tambahkan klub lain.</p>
+                            <div class="demo-box select-box">
+                                <select id="klub" multiple aria-label="Pilih klub sepak bola">
+                                    <option value="Real Madrid">Real Madrid</option>
+                                    <option value="Barcelona">Barcelona</option>
+                                    <option value="Atletico Madrid">Atletico Madrid</option>
+                                    <option value="Manchester United">Manchester United</option>
+                                    <option value="Manchester City">Manchester City</option>
+                                    <option value="Liverpool">Liverpool</option>
+                                    <option value="Arsenal">Arsenal</option>
+                                    <option value="Chelsea">Chelsea</option>
+                                    <option value="Tottenham Hotspur">Tottenham Hotspur</option>
+                                    <option value="Bayern Munich">Bayern Munich</option>
+                                    <option value="Borussia Dortmund">Borussia Dortmund</option>
+                                    <option value="Bayer Leverkusen">Bayer Leverkusen</option>
+                                    <option value="Paris Saint-Germain">Paris Saint-Germain</option>
+                                    <option value="Juventus">Juventus</option>
+                                    <option value="AC Milan">AC Milan</option>
+                                    <option value="Inter Milan">Inter Milan</option>
+                                    <option value="Ajax">Ajax</option>
+                                    <option value="Benfica">Benfica</option>
+                                    <option value="Porto">Porto</option>
+                                    <option value="Persib Bandung">Persib Bandung</option>
+                                    <option value="Persija Jakarta">Persija Jakarta</option>
+                                    <option value="Bali United">Bali United</option>
+                                    <option value="Persebaya Surabaya">Persebaya Surabaya</option>
+                                    <option value="PSM Makassar">PSM Makassar</option>
+                                    <option value="Arema FC">Arema FC</option>
+                                    <option value="Borneo FC">Borneo FC</option>
+                                </select>
+                                <p class="result" id="klub-result" aria-live="polite">Belum ada klub dipilih</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4. Flatpickr -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Flatpickr · Tanggal</span>
+                            <h3 class="recipe-title">Pilih rentang tanggal</h3>
+                            <p class="lib-desc">Klik tanggal awal, lalu tanggal akhir.</p>
+                            <div class="demo-box select-box">
+                                <input id="tanggal" class="date-input" placeholder="Pilih rentang tanggal" aria-label="Pilih rentang tanggal" readonly>
+                                <button class="detail-button date-reset-button" id="btn-reset-tanggal" type="button">Hapus tanggal</button>
+                                <p class="result" id="tanggal-result" aria-live="polite">Belum ada tanggal</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Chart.js -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Chart.js · Grafik</span>
+                            <h3 class="recipe-title">Grafik penjualan</h3>
+                            <p class="lib-desc">Klik tombol untuk mengubah data.</p>
+                            <div class="demo-box chart-box">
+                                <canvas id="chart" role="img" aria-label="Grafik penjualan mingguan"></canvas>
+                            </div>
+                            <button class="detail-button chart-button" id="btn-chart" type="button">Acak data 🎲</button>
+                        </div>
+                    </article>
+
+                    <!-- 6. Tabulator -->
+                    <article class="recipe-card">
+                        <div class="recipe-body">
+                            <span class="recipe-cuisine">Tabulator · Tabel</span>
+                            <h3 class="recipe-title">Tabel produk</h3>
+                            <p class="lib-desc">Cari produk atau klik judul kolom untuk mengurutkan.</p>
+                            <label class="table-search-label" for="cari-produk">Cari produk</label>
+                            <input id="cari-produk" class="date-input table-search" type="search" placeholder="Ketik nama atau kategori...">
+                            <div id="tabel"></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

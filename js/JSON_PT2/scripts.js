@@ -1,4 +1,3 @@
-
 const API_URL = "https://dummyjson.com/recipes";
 
 let recipes = [];
@@ -15,7 +14,6 @@ const searchInput = document.getElementById("search-input");
 
 const cuisineFilter = document.getElementById("cuisine-filter");
 const difficultyFilter = document.getElementById("difficulty-filter");
-
 const resetFilterButton = document.getElementById("reset-filter-button");
 
 const favoriteButton = document.getElementById("favorite-button");
@@ -32,14 +30,14 @@ async function getRecipes() {
     const response = await fetch(API_URL);
 
     if (!response.ok) {
-      throw new Error("Gagal mengambil data");
+      throw new Error("Gagal mengambil data resep");
     }
 
     const data = await response.json();
     recipes = data.recipes || [];
 
-    console.log("Data JSON:", data);
-    console.log("Recipes:", recipes);
+    console.log("Data:", data);
+    console.log("Daftar resep:", recipes);
 
     createCuisineFilter();
     displayRecipes(recipes);
@@ -57,7 +55,7 @@ function displayRecipes(data) {
   emptyState.hidden = data.length !== 0;
   recipeGrid.hidden = data.length === 0;
 
-  recipeCount.textContent = `${data.length} recipes`;
+  recipeCount.textContent = `${data.length} resep`;
 
   if (data.length === 0) {
     return;
@@ -67,7 +65,7 @@ function displayRecipes(data) {
     const card = document.createElement("article");
     card.className = "recipe-card";
 
-    const recipeName = recipe.name || "Untitled Recipe";
+    const recipeName = recipe.name || "Resep tanpa nama";
     const recipeTime = (recipe.prepTimeMinutes || 0) + (recipe.cookTimeMinutes || 0);
 
     card.innerHTML = `
@@ -78,19 +76,20 @@ function displayRecipes(data) {
       >
 
       <div class="recipe-body">
-        <span class="recipe-cuisine">${recipe.cuisine || "Unknown"}</span>
+        <span class="recipe-cuisine">${recipe.cuisine || "Tidak diketahui"}</span>
         <h3 class="recipe-title">${recipeName}</h3>
 
         <div class="recipe-meta">
-          <span>⭐ ${recipe.rating ?? 0}</span>
-          <span>⏱ ${recipeTime} min</span>
-          <span>🔥 ${recipe.difficulty || "Unknown"}</span>
+          <span>Rating: ${recipe.rating ?? 0}</span>
+          <span>${recipeTime} menit</span>
+          <span>${recipe.difficulty || "Tidak diketahui"}</span>
         </div>
 
         <div class="recipe-actions">
-          <button class="detail-button" onclick="showDetail(${recipe.id})">View Detail</button>
-          <button class="like-button" onclick="toggleFavorite(${recipe.id})" aria-label="Favorite">
-            ${favorites.includes(recipe.id) ? "❤️" : "♡"}
+          <button class="detail-button" onclick="showDetail(${recipe.id})">Lihat Detail</button>
+
+          <button class="like-button" onclick="toggleFavorite(${recipe.id})" aria-label="Favorit">
+            ${favorites.includes(recipe.id) ? "Favorit" : "♡"}
           </button>
         </div>
       </div>
@@ -113,8 +112,10 @@ function createCuisineFilter() {
 
   categories.forEach(function (category) {
     const option = document.createElement("option");
+
     option.value = category;
     option.textContent = category;
+
     cuisineFilter.appendChild(option);
   });
 }
@@ -150,6 +151,7 @@ function filterRecipes() {
   });
 
   displayRecipes(filteredRecipes);
+
   resetFilterButton.hidden = keyword === "" && category === "" && difficulty === "";
 }
 
@@ -171,11 +173,12 @@ function showDetail(id) {
     return;
   }
 
-  const recipeName = recipe.name || "Untitled Recipe";
+  const recipeName = recipe.name || "Resep tanpa nama";
   const recipeTime = (recipe.prepTimeMinutes || 0) + (recipe.cookTimeMinutes || 0);
+
   const recipeDescription =
     (recipe.instructions && recipe.instructions[0]) ||
-    `A delicious ${recipe.cuisine || "recipe"} dish prepared with fresh ingredients.`;
+    `Hidangan ${recipe.cuisine || "ini"} yang dibuat dengan bahan-bahan pilihan.`;
 
   const ingredients = (recipe.ingredients || [])
     .map(function (item) {
@@ -200,21 +203,21 @@ function showDetail(id) {
       <h2>${recipeName}</h2>
 
       <div class="dialog-meta">
-        <span>Cuisine: ${recipe.cuisine || "Unknown"}</span>
-        <span>⭐ ${recipe.rating ?? 0}</span>
-        <span>Difficulty: ${recipe.difficulty || "Unknown"}</span>
-        <span>Time: ${recipeTime} min</span>
+        <span>Asal: ${recipe.cuisine || "Tidak diketahui"}</span>
+        <span>Rating: ${recipe.rating ?? 0}</span>
+        <span>Kesulitan: ${recipe.difficulty || "Tidak diketahui"}</span>
+        <span>Waktu: ${recipeTime} menit</span>
       </div>
 
-      <h3>Description</h3>
+      <h3>Deskripsi</h3>
       <div class="instructions">
         <p>${recipeDescription}</p>
       </div>
 
-      <h3>Ingredients</h3>
+      <h3>Bahan-bahan</h3>
       <ul class="ingredients">${ingredients}</ul>
 
-      <h3>Instructions</h3>
+      <h3>Cara membuat</h3>
       <ol class="instructions-list">${instructions}</ol>
     </div>
   `;
